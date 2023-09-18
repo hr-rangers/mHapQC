@@ -11,6 +11,10 @@ target/
 *.iws
 *.iml
 *.ipr
+hg19_CpG.gz
+hg19_CpG.gz.tbi
+hg19_cpgisland.bed
+ERX202464_Cov.bw
 
 ### Eclipse ###
 .apt_generated

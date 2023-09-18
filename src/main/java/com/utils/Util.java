@@ -8,9 +8,7 @@ import htsjdk.tribble.readers.TabixReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,5 +55,39 @@ public class Util {
             regionList.add(region);
         }
         return regionList;
+    }
+    public BufferedWriter createOutputFile(String directory, String fileName) throws IOException {
+        String filePath = "";
+        if (directory != null && !directory.equals("")) {
+            // create the output directory
+            File outputDir = new File(directory);
+            if (!outputDir.exists()){
+                if (!outputDir.mkdirs()){
+                    log.error("create" + outputDir.getAbsolutePath() + "fail");
+                    return null;
+                }
+            }
+            filePath = directory + "/" + fileName;
+        } else {
+            filePath = fileName;
+        }
+
+        // create the output file
+        File file = new File(filePath);
+        if (!file.exists()) {
+            if (!file.createNewFile()) {
+                log.error("create" + file.getAbsolutePath() + "fail");
+                return null;
+            }
+        } else {
+            FileWriter fileWriter =new FileWriter(file.getAbsoluteFile());
+            fileWriter.write("");  //写入空
+            fileWriter.flush();
+            fileWriter.close();
+        }
+        FileWriter fileWriter = new FileWriter(file.getAbsoluteFile(), true);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+        return bufferedWriter;
     }
 }
