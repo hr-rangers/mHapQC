@@ -20,7 +20,8 @@ public class CpgCovArgs implements Serializable {
     public String tag = "";
 //    @Annotation(Constants.MISSINGDATAASZERO_DESCRIPTION)
 //    public Boolean missingDataAsZero = false;
-
+    @Annotation(Constants.RATIO)
+    public Integer ratio ;
     public String getBigwig() {
         return bigwig;
     }
@@ -77,5 +78,11 @@ public class CpgCovArgs implements Serializable {
 //        this.missingDataAsZero = missingDataAsZero;
 //    }
 
+    public Integer getRatio() {
+        return ratio;
+    }
 
+    public void setRatio(Integer ratio) {
+        this.ratio = ratio;
+    }
 }

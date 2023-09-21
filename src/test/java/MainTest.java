@@ -22,8 +22,11 @@ public class MainTest extends TestCase {
         String arg6 = "hg19_cpgisland.bed";
         String arg7 = "-tag";
         String arg8 = "CpgCov.test";
+        String arg9 = "-ratio";
+        String arg10 = "5";
 
-        String[] args = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, };
+
+        String[] args = {arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9,arg10};
 
         System.out.println("Work direqtory: " + System.getProperty("user.dir"));
         String argsStr = "";

@@ -15,7 +15,7 @@ hg19_CpG.gz
 hg19_CpG.gz.tbi
 hg19_cpgisland.bed
 ERX202464_Cov.bw
-
+CpgCov.test.txt
 ### Eclipse ###
 .apt_generated
 .classpath

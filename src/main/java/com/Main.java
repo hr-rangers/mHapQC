@@ -11,9 +11,9 @@ import java.io.PrintWriter;
 import java.lang.reflect.Field;
 
 public class Main{
-    CpgCov cpgCov = new CpgCov();
+    static CpgCov cpgCov = new CpgCov();
 
-    public void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         System.setProperty("java.awt.headless", "true");
         if (args != null && args[0] != null && !"".equals(args[0])) {
             if (args[0].equals("help") || args[0].equals("h") || args[0].equals("-help") || args[0].equals("-h")) {
@@ -44,7 +44,7 @@ public class Main{
         }
         return options;
     }
-    private  void printHelp() {
+    private static void printHelp() {
         PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out, Charsets.UTF_8), true);
         pw.println("mHapQC: ");
         pw.println("Usage: java -jar mHapQC <command> [options]");
@@ -71,6 +71,7 @@ public class Main{
                 cpgCovArgs.setCpgPath(commandLine.getOptionValue("cpgPath"));
                 cpgCovArgs.setBedPath(commandLine.getOptionValue("bedPath"));
                 cpgCovArgs.setTag(commandLine.getOptionValue("tag"));
+                cpgCovArgs.setRatio(Integer.valueOf(commandLine.getOptionValue("ratio")));
             }
         } else {
             System.out.println("The paramter is null");
